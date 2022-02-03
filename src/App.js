@@ -4,7 +4,7 @@ import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify'
 import "react-contexify/dist/ReactContexify.css"
 import LeaderLine from 'leader-line-new';
 import './App.css';
-import { Header , Footer} from './sub_content';
+import { Header, Footer } from './sub_content';
 
 function EditFrom(props) {
     const [text, setText] = useState(props.initText);
@@ -30,23 +30,23 @@ function EditFrom(props) {
         <div className={props.moveClassName}>
             {isEd ? (
                 <form
-                className='field'
-                onSubmit={handleSaveText}>
-                        <input
+                    className='field'
+                    onSubmit={handleSaveText}>
+                    <input
                         className='input'
-                            type="text"
-                            ref={addText}
-                            value={text}
-                            onChange={(e) => { setText(e.target.value) }}
-                        />
-                        <button
+                        type="text"
+                        ref={addText}
+                        value={text}
+                        onChange={(e) => { setText(e.target.value) }}
+                    />
+                    <button
                         className='button'
                         type='submit'>Save</button>
                 </form>
             ) : (
-                <form 
-                className='field'
-                onSubmit={handleEditing}>
+                <form
+                    className='field'
+                    onSubmit={handleEditing}>
                     <div>
                         <span className='label'>{text}</span>
                         {
@@ -54,8 +54,8 @@ function EditFrom(props) {
                                 <div />
                             ) : (
                                 <button
-                                className='button'
-                                type='submit'>Edit</button>
+                                    className='button'
+                                    type='submit'>Edit</button>
                             )
                         }
 
@@ -83,15 +83,15 @@ function Form(props) {
     return (
         <div>
             <form
-            className='field'
-            onSubmit={handleSubmit} >
+                className='field'
+                onSubmit={handleSubmit} >
                 <button
-                className='button'
-                type='submit'> PLUS </button>
+                    className='button'
+                    type='submit'> PLUS </button>
                 <input
-                className='input'
-                ref={addText} type="text"
-                placeholder='type this area'></input>
+                    className='input'
+                    ref={addText} type="text"
+                    placeholder='type this area'></input>
             </form>
         </div>
     )
@@ -190,26 +190,26 @@ function MoveSet(props) {
             {targets.map((divs, divId) => {
                 return (
                     props.moving ? (
-                    <Moveable
-                        key={`${divs[0].getAttribute('id') + divs[0].getAttribute('class')}`}
-                        target={divs}
-                        draggable={true}
-                        origin={false}
-                        checkInput={true}
-                        onDragGroupStart={({ events }) => {
-                            events.forEach((ev, i) => {
-                                ev.set(frames[divId][i].translate)
-                            })
-                        }}
-                        onDragGroup={({ events }) => {
-                            events.forEach((ev, i) => {
-                                if (i === 0) {
-                                    frames[divId][i].translate = ev.beforeTranslate;
-                                    ev.target.style.transform = `translate(${ev.beforeTranslate[0]}px, ${ev.beforeTranslate[1]}px)`;
-                                }
-                            })
-                        }}
-                    />
+                        <Moveable
+                            key={`${divs[0].getAttribute('id') + divs[0].getAttribute('class')}`}
+                            target={divs}
+                            draggable={true}
+                            origin={false}
+                            checkInput={true}
+                            onDragGroupStart={({ events }) => {
+                                events.forEach((ev, i) => {
+                                    ev.set(frames[divId][i].translate)
+                                })
+                            }}
+                            onDragGroup={({ events }) => {
+                                events.forEach((ev, i) => {
+                                    if (i === 0) {
+                                        frames[divId][i].translate = ev.beforeTranslate;
+                                        ev.target.style.transform = `translate(${ev.beforeTranslate[0]}px, ${ev.beforeTranslate[1]}px)`;
+                                    }
+                                })
+                            }}
+                        />
                     ) : (
                         <div />
                     )
@@ -306,11 +306,19 @@ function Main() {
     return (
         <div onClick={makeLinks}>
             <form
-            className='field'
-             onSubmit={handleChangeMove}>
-                <button
-                className='button'
-                type='submit'>MOVE</button>
+                className='field'
+                onSubmit={handleChangeMove}>
+                {moving ? (
+                    <button
+                        className='button'
+                        type='submit'>STOP</button>
+                ) : (
+                    <button
+                        className='button'
+                        type='submit'>MOVE</button>
+                )
+                }
+
             </form>
             <Form openItems={openItems} />
             <Contents
