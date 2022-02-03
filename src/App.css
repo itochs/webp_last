@@ -1,0 +1,10 @@
+.move-target {
+    width: 200px;
+    line-height: 150px;
+    text-align: center;
+    margin: 50px;
+    padding: 10px;
+    border: 1px solid steelblue;
+    display: inline-block;
+    position: relative;
+}

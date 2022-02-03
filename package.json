@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "bulma": "^0.9.3",
+    "leader-line-new": "^1.1.9",
+    "moveable": "^0.27.3",
+    "react": "^17.0.2",
+    "react-contexify": "^5.0.0",
+    "react-dom": "^17.0.2"
+  },
+  "name": "react-prepare",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "react-scripts": "^5.0.0"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "start": "react-scripts start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
